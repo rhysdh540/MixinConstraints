@@ -52,6 +52,11 @@ dependencies {
     "neoforgeImplementation"("net.neoforged.fancymodloader:loader:3.0.45")
 }
 
+tasks.withType<Javadoc> {
+    val options = options as StandardJavadocDocletOptions
+    options.addBooleanOption("Xdoclint:none", true)
+}
+
 tasks.jar {
     from(fabric.output)
     from(forge.output)
