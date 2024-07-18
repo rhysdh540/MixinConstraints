@@ -90,7 +90,7 @@ public final class MixinHacks {
 	}
 
 	private static void addExtension(List<IExtension> extensions, IExtension newExtension) {
-		extensions.addFirst(newExtension);
+		extensions.add(0, newExtension);
 
 		// If this runs before our extensions it will fail since we're not done generating our bytecode.
 		List<IExtension> lateExtensions = new ArrayList<>();
