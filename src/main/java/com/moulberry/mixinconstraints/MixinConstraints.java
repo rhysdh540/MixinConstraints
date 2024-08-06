@@ -47,10 +47,11 @@ public class MixinConstraints {
     private static Loader getLoader() {
         if (doesClassExist("net.fabricmc.loader.api.FabricLoader"))
             return Loader.FABRIC;
-        if (doesClassExist("net.minecraftforge.fml.loading.FMLLoader"))
-            return Loader.FORGE;
         if (doesClassExist("net.neoforged.fml.loading.FMLLoader"))
             return Loader.NEOFORGE;
+        if (doesClassExist("net.minecraftforge.fml.loading.FMLLoader")) {
+            return Loader.FORGE;
+        }
 
         throw new RuntimeException("Could not determine loader");
     }
